@@ -1,5 +1,4 @@
-# PROJETO MICROSERVIÇOS PETRÓLEO - EXPLICAÇÃO RÁPIDA
-
+# PROJETO MICROSERVIÇOS PETRÓLEO
 API Node.js (Sensores) - api_sensores_nodejs
 
 Simula dados de sensor e manda alerta.
@@ -49,3 +48,39 @@ Fila RabbitMQ como entra as msg:
 
 A API PHP usa pra mandar mensagem de "despacho urgente" (pela fila logistics_queue) sem precisar que a API Python receba ou esteja pronta pra receber, ela fica na fila.
 A API Python usa essa fila (logistics_queue) pra pegar essas mensagens e salvar como evento.
+
+# COMO RODAR
+
+1. Coisas que você precisa ter instalado ANTES:
+
+Docker (pra rodar Redis e RabbitMQ fácil)
+Node.js e npm
+Python e pip
+PHP e Composer
+2. Preparar o Ambiente (uma vez só):
+
+Docker (Redis e RabbitMQ):
+Redis: docker run -d --name meu-redis -p 6379:6379 redis
+RabbitMQ: docker run -d --name meu-rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+(Rode esses comandos no seu terminal se ainda não tiver os containers rodando)
+3. Rodar cada API (cada uma em um terminal diferente):
+
+API 1: Node.js (Sensores)
+
+Vá para a pasta: cd api_sensores_nodejs
+Instale dependências (só na primeira vez ou se mudar): npm install
+Rode a API: node app.js
+Vai rodar em: http://localhost:3000
+API 2: Python (Eventos Críticos)
+
+Vá para a pasta: cd api_eventos_python
+Ative o ambiente virtual (ex: source venv/bin/activate ou venv\Scripts\activate no Windows)
+Instale dependências (só na primeira vez ou se mudar): pip install Flask redis pika (ou pip install -r requirements.txt se tiver um)
+Rode a API: python app.py
+Vai rodar em: http://localhost:5000
+API 3: PHP (Logística)
+
+Vá para a pasta: cd api_logistica_php
+Instale dependências (só na primeira vez ou se mudar): composer install
+Rode a API: php -S localhost:8000
+Vai rodar em: http://localhost:8000
