@@ -1,0 +1,86 @@
+# ~/.gitignore
+
+# Comentários são precedidos por uma cerquilha.
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs e arquivos de dump
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.out
+*.pid
+*.seed
+*.pid.lock
+
+# Arquivos de IDEs e editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+
+# Arquivos de ambiente - NUNCA envie arquivos .env com senhas/chaves!
+# Considere criar um .env.example com as variáveis necessárias, mas sem os valores.
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Node.js (para a pasta api_sensores_nodejs)
+# -----------------------------------------------------------------------------
+api_sensores_nodejs/node_modules/
+
+
+# Python (para a pasta api_eventos_python)
+# -----------------------------------------------------------------------------
+api_eventos_python/venv/
+api_eventos_python/env/
+api_eventos_python/*.venv/
+api_eventos_python/__pycache__/
+api_eventos_python/*.py[cod]
+api_eventos_python/$PYTHON_EGG_CACHE/
+api_eventos_python/*.egg-info/
+api_eventos_python/*.egg
+api_eventos_python/.pytest_cache/
+api_eventos_python/.mypy_cache/
+api_eventos_python/.dmypy.json
+api_eventos_python/dmypy.json
+api_eventos_python/coverage.xml
+api_eventos_python/htmlcov/
+api_eventos_python/.tox/
+api_eventos_python/instance/ # Para Flask, se usado
+api_eventos_python/build/
+api_eventos_python/develop-eggs/
+api_eventos_python/dist/
+api_eventos_python/downloads/
+api_eventos_python/eggs/
+api_eventos_python/lib/
+api_eventos_python/lib64/
+api_eventos_python/parts/
+api_eventos_python/sdist/
+api_eventos_python/var/
+api_eventos_python/wheels/
+api_eventos_python/.Python
+# Se você usar pipenv
+# api_eventos_python/Pipfile.lock # Geralmente é versionado, similar ao package-lock.json
+
+# PHP / Composer (para a pasta api_logistica_php)
+# -----------------------------------------------------------------------------
+api_logistica_php/vendor/
+api_logistica_php/composer.phar
+# api_logistica_php/composer.lock # Geralmente é versionado, pois garante builds consistentes.
+
+# Arquivos de teste (se aplicável e não versionados)
+# coverage/
+# .nyc_output/
+
+# Arquivos temporários
+*.tmp
